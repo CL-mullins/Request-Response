@@ -1,4 +1,5 @@
 from flask import flask
+import random
 
 app = Flask(__name__)
 
@@ -38,5 +39,15 @@ def sayntimes(word, n):
         print(word)
         i++
 
+
+@app.route('/dicegame/')
+def dicegame():
+    """Returns a number between one and 6. If the user rolls a 6, they win
+    otherwise they lose"""
+    diceRoll = randint(1,6):
+        if diceRoll == 6:
+            return f"You rolled a {diceRoll}, you won!"
+        else:
+            return f"You rolled a {diceRoll}, you lost."
 if __name__ == '__main__':
     app.run(debug=True)
