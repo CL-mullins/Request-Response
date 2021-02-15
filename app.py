@@ -25,7 +25,18 @@ def madLibs(adjective, noun):
 @app.route('/multiply/<number1>/<number2>')
 def multiply(number1, number2):
     """Multiplies number 1 by number 2"""
-    return number1 * number2
+    if number1.isdigit() & number2.isdigit() == True:
+        return number1 * number2
+    else:
+        return "Invalid inputs, please input two numbers"
+
+@app.route('/sayntimes/<word>/<n>')
+def sayntimes(word, n):
+    """Prints out a word a certain number of times"""
+    i = 0
+    while i < n:
+        print(word)
+        i++
 
 if __name__ == '__main__':
     app.run(debug=True)
